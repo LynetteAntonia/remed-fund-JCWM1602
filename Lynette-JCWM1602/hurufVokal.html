@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huruf Vokal</title>
+</head>
+<body>
+    <h1>Masukkan kata</h1>
+    <input type="text" id="input" placeholder="masukkan kata">
+    <input type="button" id="hitung" value="Hitung Vokal">
+    <input type="button" id="huruf" value="Huruf Vokal">
+    <input type="button" id="tanpa" value="Tanpa Vokal">
+    <h2 id="hasil"</h2>
+</body>
+<script>
+
+    let buttonHitung = document.getElementById("hitung")
+    let buttonHuruf = document.getElementById("huruf")
+    let buttonTanpa = document.getElementById("tanpa")
+
+    function hitungVokal(string){
+
+        let output= 0
+        let input = document.getElementById("input").value.toLowerCase()
+        let vowels = "aiueo"
+        let vowels1 = vowels.toLowerCase()
+
+        for(let i=0; i<input.length; i++){
+            if(vowels1.includes(input[i])){
+                output ++
+            }
+        }
+
+        document.getElementById("hasil").innerHTML = (`Jumlah huruf vokal ada: ${output}`)
+    }
+
+
+
+
+        function hurufVokal(string){
+
+        let output= []
+        let input = document.getElementById("input").value.toLowerCase()
+
+        for(let i=0; i<input.length; i++){
+            if(input[i] == "a" || input[i] == "i" ||input[i] == "u" ||input[i] == "e" ||input[i] == "o"){
+                output.push(input[i])
+                
+            }
+        }document.getElementById("hasil").innerHTML = (`Huruf vokal: ${output}`)
+    }
+
+
+
+
+        function tanpaVokal(string){
+
+        let output= " "
+        let vowels = "aiueo"
+        let vowels1 = vowels.toLowerCase()
+        let input = document.getElementById("input").value.toLowerCase()
+
+        for (let i = 0; i < input.length; i++){
+            if(vowels1.includes(input[i]) == false){
+                output += input[i]
+            }
+        }
+        document.getElementById("hasil").innerHTML = (`Tanpa vokal: ${output}`)
+    }
+        
+    buttonHitung.addEventListener("click", hitungVokal)
+    buttonHuruf.addEventListener("click", hurufVokal)
+    buttonTanpa.addEventListener("click", tanpaVokal)
+
+
+
+</script>
+</html>
